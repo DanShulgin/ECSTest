@@ -7,5 +7,6 @@ public class ViewSystems : Feature
         Add(new InstantiatePrefabSystem(contexts));
         Add(new RenderPositionSystem(contexts));
         Add(new RenderDirectionSystem(contexts));
+        Add(new AnimatorSpeedSystem(contexts));
     }
 }

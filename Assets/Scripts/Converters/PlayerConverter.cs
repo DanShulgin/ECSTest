@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Converters
 {
     public class PlayerConverter : GameObjectToEntityConverter
     {
+        [SerializeField] private Animator animator;
+        
         protected override void Convert(GameEntity entity)
         {
             base.Convert(entity);
@@ -13,6 +16,7 @@ namespace Converters
             entity.AddStoppingDistance(0.05f);
             entity.isMoveCommandListener = true;
             entity.AddAlignToVelocity(10f);
+            entity.AddAnimator(animator);
         }
     }
 }

@@ -13,7 +13,7 @@ public class MoveCommandSystem : ReactiveSystem<InputEntity>
     {
         _inputContext = contexts.input;
         _navMeshService = navMeshService;
-        _moveListeners = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.MoveCommandListener));
+        _moveListeners = contexts.game.GetGroup(GameMatcher.MoveCommandListener);
     }
 
     protected override ICollector<InputEntity> GetTrigger(IContext<InputEntity> context)

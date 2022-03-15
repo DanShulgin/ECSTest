@@ -9,29 +9,31 @@
 public static class GameComponentsLookup {
 
     public const int AlignToVelocity = 0;
-    public const int Direction = 1;
-    public const int Door = 2;
-    public const int GroundButton = 3;
-    public const int InitialPosition = 4;
-    public const int MoveAlongPath = 5;
-    public const int MoveCommandListener = 6;
-    public const int MoveComplete = 7;
-    public const int Move = 8;
-    public const int MoveTargetPosition = 9;
-    public const int Opened = 10;
-    public const int PathPointIndex = 11;
-    public const int Player = 12;
-    public const int Position = 13;
-    public const int Prefab = 14;
-    public const int StoppingDistance = 15;
-    public const int TargetVelocity = 16;
-    public const int Velocity = 17;
-    public const int View = 18;
+    public const int Animator = 1;
+    public const int Direction = 2;
+    public const int Door = 3;
+    public const int GroundButton = 4;
+    public const int InitialPosition = 5;
+    public const int MoveAlongPath = 6;
+    public const int MoveCommandListener = 7;
+    public const int MoveComplete = 8;
+    public const int Move = 9;
+    public const int MoveTargetPosition = 10;
+    public const int Opened = 11;
+    public const int PathPointIndex = 12;
+    public const int Player = 13;
+    public const int Position = 14;
+    public const int Prefab = 15;
+    public const int StoppingDistance = 16;
+    public const int TargetVelocity = 17;
+    public const int Velocity = 18;
+    public const int View = 19;
 
-    public const int TotalComponents = 19;
+    public const int TotalComponents = 20;
 
     public static readonly string[] componentNames = {
         "AlignToVelocity",
+        "Animator",
         "Direction",
         "Door",
         "GroundButton",
@@ -54,6 +56,7 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(AlignToVelocityComponent),
+        typeof(AnimatorComponent),
         typeof(DirectionComponent),
         typeof(DoorComponent),
         typeof(GroundButtonComponent),
