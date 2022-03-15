@@ -11,7 +11,7 @@ namespace Converters
             entity.AddMove(5f);
             entity.AddStoppingDistance(0.05f);
             entity.isMoveCommandListener = true;
-            entity.isAlignToMoveDirection = true;
+            entity.AddAlignToVelocity(10f);
         }
     }
 }

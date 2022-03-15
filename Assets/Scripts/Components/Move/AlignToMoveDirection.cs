@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-public class AlignToMoveDirection : IComponent
-{
-        
+public class AlignToVelocityComponent : IComponent
+{ 
+    public float AlignSpeed;
 }

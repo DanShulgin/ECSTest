@@ -17,21 +17,16 @@ public class MoveToTargetPositionSystem : IExecuteSystem, ICleanupSystem
         foreach (GameEntity e in _movesToTargetPosition.GetEntities())
         {
             Vector3 dir = e.moveTargetPosition.Value - e.position.Value;
-            Vector3 newPosition = e.position.Value + dir.normalized * e.move.Speed * Time.deltaTime;
-            e.ReplacePosition(newPosition);
+            Vector3 velocity = dir.normalized * e.move.Speed;
+            e.ReplaceVelocity(velocity);
 
-            if (e.isAlignToMoveDirection)
-            {
-                float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
-                e.ReplaceDirection(angle);
-            }
-            
             float dist = dir.magnitude;
             var stoppingDistance = e.hasStoppingDistance ? e.stoppingDistance.Value : 0.5f;
             
             if (dist <= stoppingDistance)
             {
                 e.RemoveMoveTargetPosition();
+                e.RemoveVelocity();
                 e.isMoveComplete = true;
             }
         }

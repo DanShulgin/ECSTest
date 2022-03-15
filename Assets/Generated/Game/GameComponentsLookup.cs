@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int AlignToMoveDirection = 0;
+    public const int AlignToVelocity = 0;
     public const int Direction = 1;
     public const int Door = 2;
     public const int GroundButton = 3;
@@ -24,12 +24,13 @@ public static class GameComponentsLookup {
     public const int Position = 13;
     public const int Prefab = 14;
     public const int StoppingDistance = 15;
-    public const int View = 16;
+    public const int Velocity = 16;
+    public const int View = 17;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
-        "AlignToMoveDirection",
+        "AlignToVelocity",
         "Direction",
         "Door",
         "GroundButton",
@@ -45,11 +46,12 @@ public static class GameComponentsLookup {
         "Position",
         "Prefab",
         "StoppingDistance",
+        "Velocity",
         "View"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(AlignToMoveDirection),
+        typeof(AlignToVelocityComponent),
         typeof(DirectionComponent),
         typeof(DoorComponent),
         typeof(GroundButtonComponent),
@@ -65,6 +67,7 @@ public static class GameComponentsLookup {
         typeof(PositionComponent),
         typeof(PrefabComponent),
         typeof(StoppingDistanceComponent),
+        typeof(VelocityComponent),
         typeof(ViewComponent)
     };
 }

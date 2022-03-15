@@ -6,6 +6,8 @@ public class MovementSystems : Feature
     {
         Add(new MoveCommandSystem(contexts, new NavMeshService()));
         Add(new MoveToTargetPositionSystem(contexts));
+        Add(new VelocitySystem(contexts));
+        Add(new AlignWithVelocitySystem(contexts));
         Add(new MoveAlongPathSystem(contexts));
     }
 }
