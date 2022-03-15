@@ -10,6 +10,7 @@ namespace Converters
             entity.isPlayer = true;
             entity.AddMove(5f);
             entity.isMoveCommandListener = true;
+            entity.isAlignToMoveDirection = true;
         }
     }
 }

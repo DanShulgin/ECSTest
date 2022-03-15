@@ -26,7 +26,7 @@ public class RenderDirectionSystem : ReactiveSystem<GameEntity>
         foreach (GameEntity e in entities)
         {
             float ang = e.direction.value;
-            e.view.gameObject.transform.rotation = Quaternion.AngleAxis(ang - 90, Vector3.up);
+            e.view.gameObject.transform.rotation = Quaternion.AngleAxis(ang, Vector3.up);
         }
     }
 }

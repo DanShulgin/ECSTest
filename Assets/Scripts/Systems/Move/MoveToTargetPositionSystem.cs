@@ -20,9 +20,12 @@ public class MoveToTargetPositionSystem : IExecuteSystem, ICleanupSystem
             Vector3 newPosition = e.position.Value + dir.normalized * e.move.Speed * Time.deltaTime;
             e.ReplacePosition(newPosition);
 
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            e.ReplaceDirection(angle);
-
+            if (e.isAlignToMoveDirection)
+            {
+                float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
+                e.ReplaceDirection(angle);
+            }
+            
             float dist = dir.magnitude;
             var stoppingDistance = e.hasStoppingDistance ? e.stoppingDistance.Value : 0.5f;
             

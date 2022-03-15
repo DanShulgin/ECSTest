@@ -8,24 +8,26 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Direction = 0;
-    public const int Door = 1;
-    public const int GroundButton = 2;
-    public const int InitialPosition = 3;
-    public const int MoveCommandListener = 4;
-    public const int MoveComplete = 5;
-    public const int Move = 6;
-    public const int MoveTargetPosition = 7;
-    public const int Opened = 8;
-    public const int Player = 9;
-    public const int Position = 10;
-    public const int Prefab = 11;
-    public const int StoppingDistance = 12;
-    public const int View = 13;
+    public const int AlignToMoveDirection = 0;
+    public const int Direction = 1;
+    public const int Door = 2;
+    public const int GroundButton = 3;
+    public const int InitialPosition = 4;
+    public const int MoveCommandListener = 5;
+    public const int MoveComplete = 6;
+    public const int Move = 7;
+    public const int MoveTargetPosition = 8;
+    public const int Opened = 9;
+    public const int Player = 10;
+    public const int Position = 11;
+    public const int Prefab = 12;
+    public const int StoppingDistance = 13;
+    public const int View = 14;
 
-    public const int TotalComponents = 14;
+    public const int TotalComponents = 15;
 
     public static readonly string[] componentNames = {
+        "AlignToMoveDirection",
         "Direction",
         "Door",
         "GroundButton",
@@ -43,6 +45,7 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AlignToMoveDirection),
         typeof(DirectionComponent),
         typeof(DoorComponent),
         typeof(GroundButtonComponent),
