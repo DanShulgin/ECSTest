@@ -24,10 +24,11 @@ public static class GameComponentsLookup {
     public const int Position = 13;
     public const int Prefab = 14;
     public const int StoppingDistance = 15;
-    public const int Velocity = 16;
-    public const int View = 17;
+    public const int TargetVelocity = 16;
+    public const int Velocity = 17;
+    public const int View = 18;
 
-    public const int TotalComponents = 18;
+    public const int TotalComponents = 19;
 
     public static readonly string[] componentNames = {
         "AlignToVelocity",
@@ -46,6 +47,7 @@ public static class GameComponentsLookup {
         "Position",
         "Prefab",
         "StoppingDistance",
+        "TargetVelocity",
         "Velocity",
         "View"
     };
@@ -67,6 +69,7 @@ public static class GameComponentsLookup {
         typeof(PositionComponent),
         typeof(PrefabComponent),
         typeof(StoppingDistanceComponent),
+        typeof(TargetVelocityComponent),
         typeof(VelocityComponent),
         typeof(ViewComponent)
     };

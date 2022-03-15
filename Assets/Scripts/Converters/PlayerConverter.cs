@@ -8,7 +8,8 @@ namespace Converters
         {
             base.Convert(entity);
             entity.isPlayer = true;
-            entity.AddMove(5f);
+            entity.AddMove(5f, 10f);
+            entity.AddVelocity(Vector3.zero);
             entity.AddStoppingDistance(0.05f);
             entity.isMoveCommandListener = true;
             entity.AddAlignToVelocity(10f);

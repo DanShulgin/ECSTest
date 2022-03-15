@@ -18,7 +18,7 @@ public class MoveToTargetPositionSystem : IExecuteSystem, ICleanupSystem
         {
             Vector3 dir = e.moveTargetPosition.Value - e.position.Value;
             Vector3 velocity = dir.normalized * e.move.Speed;
-            e.ReplaceVelocity(velocity);
+            e.ReplaceTargetVelocity(velocity);
 
             float dist = dir.magnitude;
             var stoppingDistance = e.hasStoppingDistance ? e.stoppingDistance.Value : 0.5f;
@@ -26,7 +26,6 @@ public class MoveToTargetPositionSystem : IExecuteSystem, ICleanupSystem
             if (dist <= stoppingDistance)
             {
                 e.RemoveMoveTargetPosition();
-                e.RemoveVelocity();
                 e.isMoveComplete = true;
             }
         }
@@ -37,6 +36,8 @@ public class MoveToTargetPositionSystem : IExecuteSystem, ICleanupSystem
         foreach (GameEntity e in _moveCompletes.GetEntities())
         {
             e.isMoveComplete = false;
+            e.RemoveTargetVelocity();
+            e.ReplaceVelocity(Vector3.zero);
         }
     }
 }

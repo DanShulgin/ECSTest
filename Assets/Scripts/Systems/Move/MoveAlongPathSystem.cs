@@ -23,6 +23,7 @@ public class MoveAlongPathSystem : IExecuteSystem
                     var currentPathIndex = pathIndex + 1;
                     e.ReplacePathPointIndex(currentPathIndex);
                     e.ReplaceMoveTargetPosition(path[currentPathIndex]);
+                    e.isMoveComplete = false;
                 }
                 else
                 {

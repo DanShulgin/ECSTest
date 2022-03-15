@@ -7,7 +7,7 @@ public class AlignWithVelocitySystem : IExecuteSystem
 
     public AlignWithVelocitySystem(Contexts contexts)
     {
-        _targetEntities = contexts.game.GetGroup(GameMatcher.Velocity);
+        _targetEntities = contexts.game.GetGroup(GameMatcher.TargetVelocity);
     }
 
     public void Execute()

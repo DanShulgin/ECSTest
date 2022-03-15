@@ -11,17 +11,19 @@ public partial class GameEntity {
     public MoveComponent move { get { return (MoveComponent)GetComponent(GameComponentsLookup.Move); } }
     public bool hasMove { get { return HasComponent(GameComponentsLookup.Move); } }
 
-    public void AddMove(float newSpeed) {
+    public void AddMove(float newSpeed, float newAcceleration) {
         var index = GameComponentsLookup.Move;
         var component = (MoveComponent)CreateComponent(index, typeof(MoveComponent));
         component.Speed = newSpeed;
+        component.Acceleration = newAcceleration;
         AddComponent(index, component);
     }
 
-    public void ReplaceMove(float newSpeed) {
+    public void ReplaceMove(float newSpeed, float newAcceleration) {
         var index = GameComponentsLookup.Move;
         var component = (MoveComponent)CreateComponent(index, typeof(MoveComponent));
         component.Speed = newSpeed;
+        component.Acceleration = newAcceleration;
         ReplaceComponent(index, component);
     }
 
