@@ -29,8 +29,7 @@ public class MoveCommandSystem : ReactiveSystem<InputEntity>
         if (Physics.Raycast(ray, out var hit, 100))
         {
             var targetPosition = hit.point;
-            Debug.Log($"hit {hit.transform.name} {targetPosition}");
-            
+
             foreach (GameEntity e in _moveListeners)
             {
                 e.ReplaceMoveTargetPosition(targetPosition);

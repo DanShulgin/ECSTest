@@ -15,6 +15,6 @@ public class GameObjectToEntityConverter : MonoBehaviour
     {
         entity.AddView(gameObject);
         entity.AddPosition(transform.position);
-        entity.AddDirection(transform.rotation.eulerAngles.y);
+        //entity.AddDirection(transform.rotation.eulerAngles.y);
     }
 }

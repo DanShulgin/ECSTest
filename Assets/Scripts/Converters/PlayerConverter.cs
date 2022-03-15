@@ -7,6 +7,7 @@ namespace Converters
         protected override void Convert(GameEntity entity)
         {
             base.Convert(entity);
+            entity.isPlayer = true;
             entity.AddMove(5f);
             entity.isMoveCommandListener = true;
         }

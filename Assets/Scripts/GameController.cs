@@ -1,9 +1,10 @@
 ﻿using Entitas;
+using Features;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private Systems _systems;
+    private Entitas.Systems _systems;
 
     private void Awake()
     {
@@ -11,6 +12,7 @@ public class GameController : MonoBehaviour
         
         _systems = new Feature("Systems")
             .Add(new InputSystems(contexts))
+            .Add(new DoorMechanicSystems(contexts))
             .Add(new MovementSystems(contexts))
             .Add(new ViewSystems(contexts));
         

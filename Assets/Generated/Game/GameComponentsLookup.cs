@@ -9,38 +9,53 @@
 public static class GameComponentsLookup {
 
     public const int Direction = 0;
-    public const int InitialPosition = 1;
-    public const int MoveCommandListener = 2;
-    public const int MoveComplete = 3;
-    public const int Move = 4;
-    public const int MoveTargetPosition = 5;
-    public const int Position = 6;
-    public const int Prefab = 7;
-    public const int View = 8;
+    public const int Door = 1;
+    public const int GroundButton = 2;
+    public const int InitialPosition = 3;
+    public const int MoveCommandListener = 4;
+    public const int MoveComplete = 5;
+    public const int Move = 6;
+    public const int MoveTargetPosition = 7;
+    public const int Opened = 8;
+    public const int Player = 9;
+    public const int Position = 10;
+    public const int Prefab = 11;
+    public const int StoppingDistance = 12;
+    public const int View = 13;
 
-    public const int TotalComponents = 9;
+    public const int TotalComponents = 14;
 
     public static readonly string[] componentNames = {
         "Direction",
+        "Door",
+        "GroundButton",
         "InitialPosition",
         "MoveCommandListener",
         "MoveComplete",
         "Move",
         "MoveTargetPosition",
+        "Opened",
+        "Player",
         "Position",
         "Prefab",
+        "StoppingDistance",
         "View"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(DirectionComponent),
+        typeof(DoorComponent),
+        typeof(GroundButtonComponent),
         typeof(InitialPositionComponent),
         typeof(MoveCommandListenerComponent),
         typeof(MoveCompleteComponent),
         typeof(MoveComponent),
         typeof(MoveTargetPositionComponent),
+        typeof(OpenedComponent),
+        typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(PrefabComponent),
+        typeof(StoppingDistanceComponent),
         typeof(ViewComponent)
     };
 }

@@ -24,7 +24,9 @@ public class MoveToTargetPositionSystem : IExecuteSystem, ICleanupSystem
             e.ReplaceDirection(angle);
 
             float dist = dir.magnitude;
-            if (dist <= 0.5f)
+            var stoppingDistance = e.hasStoppingDistance ? e.stoppingDistance.Value : 0.5f;
+            
+            if (dist <= stoppingDistance)
             {
                 e.RemoveMoveTargetPosition();
                 e.isMoveComplete = true;
