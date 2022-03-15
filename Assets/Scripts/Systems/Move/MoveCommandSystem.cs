@@ -1,15 +1,18 @@
 ﻿using System.Collections.Generic;
 using Entitas;
+using Services;
 using UnityEngine;
 
 public class MoveCommandSystem : ReactiveSystem<InputEntity>
 {
     readonly InputContext _inputContext;
+    readonly NavMeshService _navMeshService;
     readonly IGroup<GameEntity> _moveListeners;
     
-    public MoveCommandSystem(Contexts contexts) : base(contexts.input)
+    public MoveCommandSystem(Contexts contexts, NavMeshService navMeshService) : base(contexts.input)
     {
         _inputContext = contexts.input;
+        _navMeshService = navMeshService;
         _moveListeners = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.MoveCommandListener));
     }
 
@@ -29,10 +32,13 @@ public class MoveCommandSystem : ReactiveSystem<InputEntity>
         if (Physics.Raycast(ray, out var hit, 100))
         {
             var targetPosition = hit.point;
-
+            
             foreach (GameEntity e in _moveListeners)
             {
-                e.ReplaceMoveTargetPosition(targetPosition);
+                var entityPosition = e.position.Value;
+                var path = _navMeshService.CalculatePath(entityPosition, targetPosition);
+                e.ReplaceMoveAlongPath(path);
+                e.ReplacePathPointIndex(0);
             }
         }
     }

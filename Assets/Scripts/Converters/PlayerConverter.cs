@@ -9,6 +9,7 @@ namespace Converters
             base.Convert(entity);
             entity.isPlayer = true;
             entity.AddMove(5f);
+            entity.AddStoppingDistance(0.05f);
             entity.isMoveCommandListener = true;
             entity.isAlignToMoveDirection = true;
         }

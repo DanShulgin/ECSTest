@@ -13,18 +13,20 @@ public static class GameComponentsLookup {
     public const int Door = 2;
     public const int GroundButton = 3;
     public const int InitialPosition = 4;
-    public const int MoveCommandListener = 5;
-    public const int MoveComplete = 6;
-    public const int Move = 7;
-    public const int MoveTargetPosition = 8;
-    public const int Opened = 9;
-    public const int Player = 10;
-    public const int Position = 11;
-    public const int Prefab = 12;
-    public const int StoppingDistance = 13;
-    public const int View = 14;
+    public const int MoveAlongPath = 5;
+    public const int MoveCommandListener = 6;
+    public const int MoveComplete = 7;
+    public const int Move = 8;
+    public const int MoveTargetPosition = 9;
+    public const int Opened = 10;
+    public const int PathPointIndex = 11;
+    public const int Player = 12;
+    public const int Position = 13;
+    public const int Prefab = 14;
+    public const int StoppingDistance = 15;
+    public const int View = 16;
 
-    public const int TotalComponents = 15;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "AlignToMoveDirection",
@@ -32,11 +34,13 @@ public static class GameComponentsLookup {
         "Door",
         "GroundButton",
         "InitialPosition",
+        "MoveAlongPath",
         "MoveCommandListener",
         "MoveComplete",
         "Move",
         "MoveTargetPosition",
         "Opened",
+        "PathPointIndex",
         "Player",
         "Position",
         "Prefab",
@@ -50,11 +54,13 @@ public static class GameComponentsLookup {
         typeof(DoorComponent),
         typeof(GroundButtonComponent),
         typeof(InitialPositionComponent),
+        typeof(MoveAlongPathComponent),
         typeof(MoveCommandListenerComponent),
         typeof(MoveCompleteComponent),
         typeof(MoveComponent),
         typeof(MoveTargetPositionComponent),
         typeof(OpenedComponent),
+        typeof(PathPointIndexComponent),
         typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(PrefabComponent),
