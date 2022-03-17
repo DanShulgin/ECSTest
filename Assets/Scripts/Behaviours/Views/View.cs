@@ -1,5 +1,6 @@
 ﻿using Entitas;
 using UnityEngine;
+using Zenject;
 
 public class View : MonoBehaviour
 {

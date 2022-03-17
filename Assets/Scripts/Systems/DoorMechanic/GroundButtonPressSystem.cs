@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Configs;
 using Entitas;
 using Entitas.Unity;
 using UnityEngine;
@@ -8,13 +9,14 @@ namespace Systems.DoorMechanic
     public class GroundButtonPressSystem : IExecuteSystem
     {
         private Contexts _contexts;
-
         private IGroup<GameEntity> _groundButtons;
+        private readonly DoorConfig _doorConfig;
 
-        public GroundButtonPressSystem(Contexts contexts)
+        public GroundButtonPressSystem(Contexts contexts, DoorConfig doorConfig)
         {
             _contexts = contexts;
             _groundButtons = contexts.game.GetGroup(GameMatcher.GroundButton);
+            _doorConfig = doorConfig;
         }
 
         public void Execute()
@@ -30,8 +32,8 @@ namespace Systems.DoorMechanic
                     
                     if (!doorEntity.isOpened)
                     {
-                        doorEntity.isOpened = true;  
-                        doorEntity.AddMoveTargetPosition(doorEntity.position.Value - Vector3.up * 2.5f);
+                        doorEntity.isOpened = true;
+                        doorEntity.AddMoveTargetPosition(doorEntity.position.Value - Vector3.up * _doorConfig.downMoveDistance);
                     }
                 }
             }

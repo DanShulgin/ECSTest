@@ -3,29 +3,22 @@ using Entitas;
 using Entitas.Unity;
 using UnityEngine;
 
-public class SelfInitializedView : View
+public abstract class SelfInitializedView : View
 {
-    protected void Awake()
+    private void Awake()
+    {
+        SetupEntityComponents();
+    }
+
+    protected virtual void SetupEntityComponents()
     {
         Entity = Contexts.sharedInstance.game.CreateEntity();
         gameObject.Link(Entity);
-        Initialize();
         RegisterListeners();
-    }
-
-    private void Start()
-    {
-        LateInitialize();
-    }
-
-    protected virtual void Initialize()
-    {
         Entity.AddView(gameObject);
         Entity.AddPosition(transform.position);
         Entity.AddDirection(transform.rotation.eulerAngles.y);
     }
-
-    protected virtual void LateInitialize() { }
 
     private void OnDestroy()
     {

@@ -5,10 +5,14 @@ using UnityEngine.Serialization;
 public class ButtonView : SelfInitializedView
 {
     [FormerlySerializedAs("doorConverter")] [SerializeField] private DoorView doorView;
-        
-    protected override void LateInitialize()
+    
+    private void Start()
     {
-        base.LateInitialize();
+        LateInitialize();
+    }
+    
+    private void LateInitialize()
+    {
         Entity.AddGroundButton(doorView.Entity);
     }
 }

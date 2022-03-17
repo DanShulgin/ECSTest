@@ -1,14 +1,24 @@
-﻿using UnityEngine;
+﻿using Configs;
+using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(PositionListener))]
 public class DoorView : SelfInitializedView
 {
-    protected override void Initialize()
+    private DoorConfig _doorConfig;
+
+    [Inject]
+    protected void Initialize(DoorConfig doorConfig)
     {
-        base.Initialize();
-        Entity.AddMove(2.5f, 20f);
+        _doorConfig = doorConfig;
+    }
+
+    protected override void SetupEntityComponents()
+    {
+        base.SetupEntityComponents();
+        Entity.AddMove(_doorConfig.speed, _doorConfig.acceleration);
         Entity.AddVelocity(Vector3.zero);
-        Entity.AddStoppingDistance(0.01f);
+        Entity.AddStoppingDistance(_doorConfig.stoppingDistance);
         Entity.isDoor = true;
     }
 }
