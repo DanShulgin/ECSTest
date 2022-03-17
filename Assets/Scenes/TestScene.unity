@@ -636,6 +636,10 @@ PrefabInstance:
       value: GroundButton (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3062228106673861335, guid: 4adc9acc83a89f748950842092ee045b, type: 3}
+      propertyPath: doorView
+      value: 
+      objectReference: {fileID: 1469546615}
+    - target: {fileID: 3062228106673861335, guid: 4adc9acc83a89f748950842092ee045b, type: 3}
       propertyPath: doorConverter
       value: 
       objectReference: {fileID: 1469546615}
@@ -778,6 +782,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1824066726}
+  - component: {fileID: 1824066728}
+  - component: {fileID: 1824066727}
+  - component: {fileID: 1824066729}
   - component: {fileID: 1824066725}
   m_Layer: 0
   m_Name: Player
@@ -798,7 +805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b44bdca1e1e4e88bcc1fa79c67fe9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 142613443}
 --- !u!4 &1824066726
 Transform:
   m_ObjectHideFlags: 0
@@ -814,6 +820,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1824066727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824066724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5451d43ec96485cb26bf3509ecbd555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1824066728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824066724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ad818c61434d48ba3048689c591d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1824066729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824066724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb037e9099534e2ba0c2ba7e6a11ab67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 142613443}
 --- !u!1 &1827825258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,6 +1223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundButton
       objectReference: {fileID: 0}
+    - target: {fileID: 3062228106673861335, guid: 4adc9acc83a89f748950842092ee045b, type: 3}
+      propertyPath: doorView
+      value: 
+      objectReference: {fileID: 2692212500339739218}
     - target: {fileID: 3062228106673861335, guid: 4adc9acc83a89f748950842092ee045b, type: 3}
       propertyPath: doorConverter
       value: 

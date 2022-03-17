@@ -2,7 +2,7 @@
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 
-[Game]
+[Game, Event(EventTarget.Self)]
 public class PositionComponent : IComponent
 {
     public Vector3 Value;

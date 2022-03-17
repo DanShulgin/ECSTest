@@ -14,14 +14,14 @@ public partial class GameEntity {
     public void AddDirection(float newValue) {
         var index = GameComponentsLookup.Direction;
         var component = (DirectionComponent)CreateComponent(index, typeof(DirectionComponent));
-        component.value = newValue;
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceDirection(float newValue) {
         var index = GameComponentsLookup.Direction;
         var component = (DirectionComponent)CreateComponent(index, typeof(DirectionComponent));
-        component.value = newValue;
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -9,8 +9,8 @@
 public static class GameComponentsLookup {
 
     public const int AlignToVelocity = 0;
-    public const int Animator = 1;
-    public const int Direction = 2;
+    public const int Direction = 1;
+    public const int DirectionListener = 2;
     public const int Door = 3;
     public const int GroundButton = 4;
     public const int InitialPosition = 5;
@@ -23,18 +23,20 @@ public static class GameComponentsLookup {
     public const int PathPointIndex = 12;
     public const int Player = 13;
     public const int Position = 14;
-    public const int Prefab = 15;
-    public const int StoppingDistance = 16;
-    public const int TargetVelocity = 17;
-    public const int Velocity = 18;
-    public const int View = 19;
+    public const int PositionListener = 15;
+    public const int Prefab = 16;
+    public const int StoppingDistance = 17;
+    public const int TargetVelocity = 18;
+    public const int Velocity = 19;
+    public const int VelocityListener = 20;
+    public const int View = 21;
 
-    public const int TotalComponents = 20;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
         "AlignToVelocity",
-        "Animator",
         "Direction",
+        "DirectionListener",
         "Door",
         "GroundButton",
         "InitialPosition",
@@ -47,17 +49,19 @@ public static class GameComponentsLookup {
         "PathPointIndex",
         "Player",
         "Position",
+        "PositionListener",
         "Prefab",
         "StoppingDistance",
         "TargetVelocity",
         "Velocity",
+        "VelocityListener",
         "View"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(AlignToVelocityComponent),
-        typeof(AnimatorComponent),
         typeof(DirectionComponent),
+        typeof(DirectionListenerComponent),
         typeof(DoorComponent),
         typeof(GroundButtonComponent),
         typeof(InitialPositionComponent),
@@ -70,10 +74,12 @@ public static class GameComponentsLookup {
         typeof(PathPointIndexComponent),
         typeof(PlayerComponent),
         typeof(PositionComponent),
+        typeof(PositionListenerComponent),
         typeof(PrefabComponent),
         typeof(StoppingDistanceComponent),
         typeof(TargetVelocityComponent),
         typeof(VelocityComponent),
+        typeof(VelocityListenerComponent),
         typeof(ViewComponent)
     };
 }

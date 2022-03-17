@@ -16,7 +16,7 @@ public class AlignWithVelocitySystem : IExecuteSystem
         {
             var velocity = e.velocity.Value;
             var targetAngle = Mathf.Atan2(velocity.x, velocity.z) * Mathf.Rad2Deg;
-            var angle = Mathf.Lerp(e.direction.value, targetAngle, e.alignToVelocity.AlignSpeed * Time.deltaTime);
+            var angle = Mathf.Lerp(e.direction.Value, targetAngle, e.alignToVelocity.AlignSpeed * Time.deltaTime);
             e.ReplaceDirection(angle);
         }
     }

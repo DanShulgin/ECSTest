@@ -26,7 +26,7 @@ namespace Systems.DoorMechanic
                 if (magnitude < 1f)
                 {
                     var buttonComponent = entity.groundButton;
-                    var doorEntity = _contexts.game.GetEntitiesWithView(buttonComponent.Door).SingleEntity();
+                    var doorEntity = buttonComponent.Door;
                     
                     if (!doorEntity.isOpened)
                     {

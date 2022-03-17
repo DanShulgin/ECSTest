@@ -2,8 +2,8 @@
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 
-[Game]
+[Game, Event(EventTarget.Self)]
 public class DirectionComponent : IComponent
 {
-    public float value;
+    public float Value;
 }

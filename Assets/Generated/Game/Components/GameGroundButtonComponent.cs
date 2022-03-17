@@ -11,14 +11,14 @@ public partial class GameEntity {
     public GroundButtonComponent groundButton { get { return (GroundButtonComponent)GetComponent(GameComponentsLookup.GroundButton); } }
     public bool hasGroundButton { get { return HasComponent(GameComponentsLookup.GroundButton); } }
 
-    public void AddGroundButton(UnityEngine.GameObject newDoor) {
+    public void AddGroundButton(GameEntity newDoor) {
         var index = GameComponentsLookup.GroundButton;
         var component = (GroundButtonComponent)CreateComponent(index, typeof(GroundButtonComponent));
         component.Door = newDoor;
         AddComponent(index, component);
     }
 
-    public void ReplaceGroundButton(UnityEngine.GameObject newDoor) {
+    public void ReplaceGroundButton(GameEntity newDoor) {
         var index = GameComponentsLookup.GroundButton;
         var component = (GroundButtonComponent)CreateComponent(index, typeof(GroundButtonComponent));
         component.Door = newDoor;
