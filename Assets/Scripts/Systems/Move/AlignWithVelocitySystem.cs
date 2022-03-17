@@ -7,14 +7,16 @@ public class AlignWithVelocitySystem : IExecuteSystem
 
     public AlignWithVelocitySystem(Contexts contexts)
     {
-        _targetEntities = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Velocity, GameMatcher.TargetVelocity, GameMatcher.AlignToVelocity));
+        _targetEntities = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Velocity, GameMatcher.AlignToVelocity));
     }
 
     public void Execute()
     {
         foreach (var e in _targetEntities.GetEntities())
         {
-            var velocity = e.velocity.Value;
+            if (e.velocity.Magnitude < 0) continue;
+            
+            var velocity = e.velocity.Direction;
             var targetAngle = Mathf.Atan2(velocity.x, velocity.z) * Mathf.Rad2Deg;
             var angle = Mathf.Lerp(e.direction.Value, targetAngle, e.alignToVelocity.AlignSpeed * Time.deltaTime);
             e.ReplaceDirection(angle);

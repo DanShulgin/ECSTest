@@ -21,8 +21,8 @@ public class PlayerView : SelfInitializedView
     {
         base.SetupEntityComponents();
         Entity.isPlayer = true;
-        Entity.AddMove(_playerConfig.speed, _playerConfig.acceleration);
-        Entity.AddVelocity(Vector3.zero);
+        Entity.AddMove(_playerConfig.speed, _playerConfig.acceleration, _playerConfig.deceleration);
+        Entity.AddVelocity(Vector3.zero, 0f);
         Entity.AddStoppingDistance(_playerConfig.stoppingDistance);
         Entity.isMoveCommandListener = true;
         Entity.AddAlignToVelocity(_playerConfig.alignToVelocitySpeed);

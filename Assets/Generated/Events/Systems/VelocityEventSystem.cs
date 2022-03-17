@@ -30,7 +30,7 @@ public sealed class VelocityEventSystem : Entitas.ReactiveSystem<GameEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.velocityListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnVelocity(e, component.Value);
+                listener.OnVelocity(e, component.Direction, component.Magnitude);
             }
         }
     }

@@ -30,6 +30,7 @@ namespace Installers
             
             Container.BindInterfacesAndSelfTo<MoveCommandSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<MoveToTargetPositionSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<TargetVelocitySystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<VelocitySystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<AlignWithVelocitySystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<MoveAlongPathSystem>().AsSingle();

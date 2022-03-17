@@ -14,19 +14,19 @@ public class MoveToTargetPositionSystem : IExecuteSystem, ICleanupSystem
 
     public void Execute()
     {
-        foreach (GameEntity e in _movesToTargetPosition.GetEntities())
+        foreach (var e in _movesToTargetPosition.GetEntities())
         {
-            Vector3 dir = e.moveTargetPosition.Value - e.position.Value;
-            Vector3 velocity = dir.normalized * e.move.Speed;
-            e.ReplaceTargetVelocity(velocity);
+            var dir = e.moveTargetPosition.Value - e.position.Value;
+            e.ReplaceTargetVelocity(dir.normalized, e.move.Speed);
 
-            float dist = dir.magnitude;
+            var dist = dir.magnitude;
             var stoppingDistance = e.hasStoppingDistance ? e.stoppingDistance.Value : 0.1f;
             
             if (dist <= stoppingDistance)
             {
                 e.RemoveMoveTargetPosition();
                 e.isMoveComplete = true;
+                e.ReplaceTargetVelocity(e.targetVelocity.Direction,0f);
             }
         }
     }
@@ -36,8 +36,6 @@ public class MoveToTargetPositionSystem : IExecuteSystem, ICleanupSystem
         foreach (var e in _moveCompletes.GetEntities())
         {
             e.isMoveComplete = false;
-            e.RemoveTargetVelocity();
-            e.ReplaceVelocity(Vector3.zero);
         }
     }
 }

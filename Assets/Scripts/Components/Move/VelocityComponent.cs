@@ -5,5 +5,7 @@ using UnityEngine;
 [Game, Event(EventTarget.Self)]
 public class VelocityComponent : IComponent
 { 
-    public Vector3 Value;
+    public Vector3 Direction;
+    
+    public float Magnitude;
 }

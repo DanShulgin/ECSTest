@@ -17,7 +17,7 @@ namespace Behaviours.ViewListeners
             _entity.AddVelocityListener(this);
 
             if (_entity.hasDirection)
-                OnVelocity(_entity, _entity.velocity.Value);
+                OnVelocity(_entity, _entity.velocity.Direction, _entity.velocity.Magnitude);
         }
 
         public void UnregisterListeners(IEntity with)
@@ -25,9 +25,9 @@ namespace Behaviours.ViewListeners
             _entity.RemoveVelocityListener(this);
         }
     
-        public void OnVelocity(GameEntity entity, Vector3 velocity)
+        public void OnVelocity(GameEntity entity, Vector3 direction, float magnitude)
         {
-            animator.SetFloat(Speed, entity.velocity.Value.magnitude);
+            animator.SetFloat(Speed, magnitude);
         }
     }
 }

@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IVelocityListener {
-    void OnVelocity(GameEntity entity, UnityEngine.Vector3 value);
+    void OnVelocity(GameEntity entity, UnityEngine.Vector3 direction, float magnitude);
 }

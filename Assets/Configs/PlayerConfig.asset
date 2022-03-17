@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b83a5c5851a49d3bd85ba225c60aad8, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
-  stoppingDistance: 0.05
+  stoppingDistance: 0.4
   alignToVelocitySpeed: 10
   speed: 5
   acceleration: 10
+  deceleration: 30

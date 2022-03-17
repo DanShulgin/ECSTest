@@ -9,5 +9,6 @@ namespace Configs
         public float alignToVelocitySpeed = 10f;
         public float speed = 5f;
         public float acceleration = 10f;
+        public float deceleration = 20f;
     }
 }

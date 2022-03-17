@@ -16,8 +16,8 @@ public class DoorView : SelfInitializedView
     protected override void SetupEntityComponents()
     {
         base.SetupEntityComponents();
-        Entity.AddMove(_doorConfig.speed, _doorConfig.acceleration);
-        Entity.AddVelocity(Vector3.zero);
+        Entity.AddMove(_doorConfig.speed, _doorConfig.acceleration, _doorConfig.deceleration);
+        Entity.AddVelocity(Vector3.zero, 0f);
         Entity.AddStoppingDistance(_doorConfig.stoppingDistance);
         Entity.isDoor = true;
     }

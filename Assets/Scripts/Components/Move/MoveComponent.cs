@@ -6,4 +6,6 @@ public class MoveComponent : IComponent
     public float Speed;
 
     public float Acceleration;
+    
+    public float Deceleration;
 }

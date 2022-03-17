@@ -7,19 +7,14 @@ public class VelocitySystem : IExecuteSystem
 
     public VelocitySystem(Contexts contexts)
     {
-        _moves = contexts.game.GetGroup(GameMatcher.TargetVelocity);
+        _moves = contexts.game.GetGroup(GameMatcher.Velocity);
     }
 
     public void Execute()
     {
-        foreach (GameEntity e in _moves.GetEntities())
+        foreach (var e in _moves.GetEntities())
         {
-            float targetSpeed = e.targetVelocity.Value.magnitude;
-            float currentSpeed = e.velocity.Value.magnitude + e.move.Acceleration * Time.deltaTime;
-            currentSpeed = Mathf.Clamp(currentSpeed, 0f, targetSpeed);
-            e.ReplaceVelocity(currentSpeed * e.targetVelocity.Value.normalized);
-            
-            Vector3 newPosition = e.position.Value + e.velocity.Value * Time.deltaTime;
+            var newPosition = e.position.Value + e.velocity.Direction * e.velocity.Magnitude * Time.deltaTime;
             e.ReplacePosition(newPosition);
         }
     }
