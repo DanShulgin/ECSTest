@@ -29,7 +29,7 @@ public class MoveCommandSystem : ReactiveSystem<InputEntity>
     protected override void Execute(List<InputEntity> entities)
     {
         var ray = Camera.main.ScreenPointToRay((_inputContext.leftMouseEntity.mousePosition.position));
-        //TODO add raycast layer with di
+
         if (!Physics.Raycast(ray, out var hit, 100)) return;
         var targetPosition = hit.point;
             
