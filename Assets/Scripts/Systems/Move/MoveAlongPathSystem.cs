@@ -1,24 +1,34 @@
-﻿using Entitas;
-using UnityEngine;
+﻿using System.Collections.Generic;
+using Entitas;
 
-public class MoveAlongPathSystem : IExecuteSystem
+public class MoveAlongPathSystem : ReactiveSystem<GameEntity>
 {
-    readonly IGroup<GameEntity> _moveAlongPath;
-
-    public MoveAlongPathSystem(Contexts contexts)
+    private Contexts _contexts;
+    
+    public MoveAlongPathSystem(Contexts contexts) : base(contexts.game)
     {
-        _moveAlongPath = contexts.game.GetGroup(GameMatcher.MoveAlongPath);
+        _contexts = contexts;
     }
 
-    public void Execute()
+    protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
     {
-        foreach (GameEntity e in _moveAlongPath.GetEntities())
+        return context.CreateCollector(GameMatcher.MoveComplete.Added(), GameMatcher.MoveAlongPath.Added());
+    }
+
+    protected override bool Filter(GameEntity entity)
+    {
+        return entity.hasMoveAlongPath && entity.hasPathPointIndex;
+    }
+
+    protected override void Execute(List<GameEntity> entities)
+    {
+        foreach (var e in entities)
         {
             var path = e.moveAlongPath.Path;
             var pathIndex = e.pathPointIndex.Value;
             if (e.isMoveComplete || pathIndex == 0)
             {
-                if (path != null && pathIndex < path.Length - 1)
+                if (pathIndex < path.Length - 1)
                 {
                     var currentPathIndex = pathIndex + 1;
                     e.ReplacePathPointIndex(currentPathIndex);
