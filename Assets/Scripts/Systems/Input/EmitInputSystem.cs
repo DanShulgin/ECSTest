@@ -14,7 +14,6 @@ public class EmitInputSystem : IInitializeSystem, IExecuteSystem
 
     public void Initialize()
     {
-        // initialize the unique entities that will hold the mouse button data
         _context.isLeftMouse = true;
         _leftMouseEntity = _context.leftMouseEntity;
 
@@ -24,29 +23,20 @@ public class EmitInputSystem : IInitializeSystem, IExecuteSystem
 
     public void Execute()
     {
-        // mouse position
         Vector2 mousePosition = Input.mousePosition;
-
-        // left mouse button
+        
         if (Input.GetMouseButtonDown(0))
             _leftMouseEntity.ReplaceMouseDown(mousePosition);
-        
         if (Input.GetMouseButton(0))
             _leftMouseEntity.ReplaceMousePosition(mousePosition);
-        
         if (Input.GetMouseButtonUp(0))
             _leftMouseEntity.ReplaceMouseUp(mousePosition);
         
-
-        // right mouse button
         if (Input.GetMouseButtonDown(1))
             _rightMouseEntity.ReplaceMouseDown(mousePosition);
-        
         if (Input.GetMouseButton(1))
             _rightMouseEntity.ReplaceMousePosition(mousePosition);
-        
         if (Input.GetMouseButtonUp(1))
             _rightMouseEntity.ReplaceMouseUp(mousePosition);
-        
     }
 }

@@ -28,18 +28,20 @@ public class MoveCommandSystem : ReactiveSystem<InputEntity>
 
     protected override void Execute(List<InputEntity> entities)
     {
-        Ray ray = Camera.main.ScreenPointToRay((_inputContext.leftMouseEntity.mousePosition.position));
-        if (Physics.Raycast(ray, out var hit, 100))
-        {
-            var targetPosition = hit.point;
+        var ray = Camera.main.ScreenPointToRay((_inputContext.leftMouseEntity.mousePosition.position));
+        //TODO add raycast layer with di
+        if (!Physics.Raycast(ray, out var hit, 100)) return;
+        var targetPosition = hit.point;
             
-            foreach (GameEntity e in _moveListeners)
-            {
-                var entityPosition = e.position.Value;
-                var path = _navMeshService.CalculatePath(entityPosition, targetPosition);
-                e.ReplaceMoveAlongPath(path);
-                e.ReplacePathPointIndex(0);
-            }
+        foreach (var e in _moveListeners)
+        {
+            var entityPosition = e.position.Value;
+            var path = _navMeshService.CalculatePath(entityPosition, targetPosition);
+                
+            if(path == null) continue;
+                
+            e.ReplaceMoveAlongPath(path);
+            e.ReplacePathPointIndex(0);
         }
     }
 }

@@ -21,7 +21,7 @@ public class MoveToTargetPositionSystem : IExecuteSystem, ICleanupSystem
             e.ReplaceTargetVelocity(velocity);
 
             float dist = dir.magnitude;
-            var stoppingDistance = e.hasStoppingDistance ? e.stoppingDistance.Value : 0.5f;
+            var stoppingDistance = e.hasStoppingDistance ? e.stoppingDistance.Value : 0.1f;
             
             if (dist <= stoppingDistance)
             {
@@ -33,7 +33,7 @@ public class MoveToTargetPositionSystem : IExecuteSystem, ICleanupSystem
 
     public void Cleanup()
     {
-        foreach (GameEntity e in _moveCompletes.GetEntities())
+        foreach (var e in _moveCompletes.GetEntities())
         {
             e.isMoveComplete = false;
             e.RemoveTargetVelocity();
