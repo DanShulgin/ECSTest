@@ -6,10 +6,10 @@ using UnityEngine;
 public class MoveCommandSystem : ReactiveSystem<InputEntity>
 {
     readonly InputContext _inputContext;
-    readonly NavMeshService _navMeshService;
+    readonly INavMeshService _navMeshService;
     readonly IGroup<GameEntity> _moveListeners;
     
-    public MoveCommandSystem(Contexts contexts, NavMeshService navMeshService) : base(contexts.input)
+    public MoveCommandSystem(Contexts contexts, INavMeshService navMeshService) : base(contexts.input)
     {
         _inputContext = contexts.input;
         _navMeshService = navMeshService;

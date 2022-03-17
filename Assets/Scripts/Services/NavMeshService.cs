@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace Services
 {
-    public class NavMeshService
+    public class NavMeshService : INavMeshService
     {
         public Vector3[] CalculatePath(Vector3 start, Vector3 end)
         {
